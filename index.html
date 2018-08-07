@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <title>Hacker News API</title>
+  <link rel="stylesheet" href="materialize.min.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="scroll-content" class="row" v-for="story in stories" :key="story.id">
+      <div class="col s12 m10">
+        <div class="card grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Title: {{ story.title }}</span>
+            <p>By: {{ story.by }}</p>
+            <p>URL: {{ story.url }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spinner" v-if="loading">
+      <div>
+        <img src="./spinner.gif" />
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./app.js"></script>
+<style>
+  .spinner {
+    margin: 0 auto;
+  }
+
+  .spinner div {
+    width: 40%;
+    margin: 0 auto;
+  }
+</style>
+
+</html>
